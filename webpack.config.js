@@ -1,4 +1,6 @@
 const path = require("path");
+const merge = require("webpack-merge");
+const devserver = require('./webpack/devserver');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
@@ -23,5 +25,5 @@ const developmentConfig = {
 
 module.exports = (env) => {
   if (env === 'production') return common;
-  if (env === 'development') return Object.assign({}, developmentConfig, common);
+  if (env === 'development') return merge([devserver(), common]);
 }
