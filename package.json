@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack --watch",
+    "serv": "static build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,8 +13,10 @@
   "dependencies": {},
   "devDependencies": {
     "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
+    "node-static": "^0.7.10",
     "tapable": "^1.0.0",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9"
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.0.0"
   }
 }
