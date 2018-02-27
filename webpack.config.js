@@ -6,10 +6,22 @@ const PATHS = {
     build: path.join(__dirname, 'build')
 };
 
-module.exports = {
+const common = {
     entry: PATHS.source + '/index.js',
     output: { path: PATHS.build, filename: '[name].js' },
     plugins: [
       new HtmlWebpackPlugin({ title: 'Webpack App' }),
     ],
+}
+
+const developmentConfig = {
+    devServer: {
+        stats: 'errors-only',
+        port: 9000,
+    },
+}
+
+module.exports = (env) => {
+  if (env === 'production') return common;
+  if (env === 'development') return Object.assign({}, developmentConfig, common);
 }
